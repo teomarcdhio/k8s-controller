@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: custom-pod-labels-controller-role
+rules:
+- apiGroups: ["*"]
+  resources: ["pods"]
+  verbs: ["create", "get", "update", "list", "watch", "delete", "patch"]

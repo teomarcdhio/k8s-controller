@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-pod-labels-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom-pod-labels-controller
+  template:
+    metadata:
+      labels:
+        app: custom-pod-labels-controller
+    spec:
+      serviceAccountName: custom-pod-labels-controller-sa
+      containers:
+        - name: custom-pod-labels-controller
+          image: localhost:32000/label-pods-controller:0.0.1
